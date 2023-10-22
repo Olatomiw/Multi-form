@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: Bold;
+    src: url(../Assets/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+    font-family: Medium;
+    src: url(../Assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+    font-family: Regular;
+    src: url(../Assets/fonts/Ubuntu-Regular.ttf);
+}
+
+body{
+    height: 100vh;
+    background-color: hsl(206, 94%, 87%);
+    color: white;
+}
+
+.container{
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+main{
+    background-color: white;
+    padding: 30px;
+    width: 70%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+.info{
+    display: none;
+}
+form{
+    width: 80%;
+    margin-top: 50px;
+}
+.form-control{
+    background-image: url(../Assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size:contain;
+    width: 35%;
+    border: 1px solid black;
+}
+.form-holder{
+    width: 55%;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+.form-holder h1{
+    color: hsl(213, 96%, 18%);
+    font-size: 2rem;
+    font-family: Bold;
+}
+input[type="text"],[type="email"], [type="number"]{
+    padding: 20px;
+    width: 100%;
+    border-radius: 20px;
+    border-style:solid;
+    margin: 10px 0px 20px 0px;
+}
+
+input[type="text"]:focus{
+    border-style: none;
+    border: 1px solid red;
+}
+.control{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+.form-number{
+    margin-right: 10px;
+    color: black;
+}
+.circle{
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+.form-control p{
+    color: hsl(228, 100%, 84%);
+    font-family: Regular;
+}
+.form-control h2{
+    font-family: Medium;
+    font-size: 1.2rem;
+}
+button{
+    padding: 10px;
+    background-color: hsl(243, 100%, 62%);
+    border: none;
+}
+
+
+/* Plan */
+.plan{
+    display: flex;
+    border: 1px solid red;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.plan section{
+    border: 2px solid hsl(243, 100%, 62%);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 150px;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 0px 20px;
+}
+
+.plan section:hover{
+    cursor:pointer;
+}
