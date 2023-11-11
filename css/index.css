@@ -42,7 +42,7 @@ main{
     display: none;
 }
 form{
-    width: 80%;
+    width: 90%;
     margin-top: 50px;
 }
 .form-control{
@@ -88,8 +88,11 @@ input[type="text"]:focus{
 }
 .circle{
     padding: 10px;
-    background-color: white;
     border-radius: 50%;
+    border: 1px solid #000000;
+}
+.active{
+    background-color: #ffff;
 }
 .form-control p{
     color: hsl(228, 100%, 84%);
@@ -107,6 +110,12 @@ button{
 
 
 /* Plan */
+.select-plan{
+    /* display: none; */
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
 .plan{
     display: flex;
     border: 1px solid red;
@@ -125,7 +134,76 @@ button{
     border-radius: 10px;
     padding: 0px 20px;
 }
+.plan-bg{
+    background-color: hsl(206, 94%, 87%);
+}
+.control:hover{
+    cursor: pointer;
+}
 
+
+.switch{
+    display: flex;
+    border: 1px solid black;
+    justify-content: center;
+}
+.switch p{
+    margin: 0rem 1rem;
+}
 .plan section:hover{
     cursor:pointer;
+}
+
+.plan-switch{
+    border: 2px solid black;
+    width: 45px;
+    height: 20px;
+    display: flex;
+    background-color: blue;
+    align-items: center;
+    border-radius: 10px;
+}
+.plan-switch:hover{
+    cursor: pointer;
+}
+.switch-end{
+    justify-content: flex-end;
+}
+
+.plan-toggle{
+    background-color: #ffff;
+    height: 15px;
+    width: 15px;
+    margin-left: .1rem;
+    margin-top: .1rem;
+    margin-bottom: .1rem;
+    /* border: 2px solid white; */
+    display: block;
+    border-radius: 50%;
+}
+
+.months{
+    display: none;
+}
+
+/* Adds-0ns */
+
+.add-ons{
+    display: none;
+}
+.multiplayer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid blue;
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 10px;
+
+}
+
+.online{
+    display: flex;
+    width: 58%;
+    justify-content: space-between;
 }
