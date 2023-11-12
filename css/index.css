@@ -29,7 +29,6 @@ body{
     align-items: center;
 
 }
-
 main{
     background-color: white;
     padding: 30px;
@@ -38,12 +37,10 @@ main{
     display: flex;
     justify-content: center;
 }
-.info{
-    display: none;
-}
 form{
     width: 90%;
     margin-top: 50px;
+    /* overflow: hidden; */
 }
 .form-control{
     background-image: url(../Assets/images/bg-sidebar-desktop.svg);
@@ -84,15 +81,16 @@ input[type="text"]:focus{
 }
 .form-number{
     margin-right: 10px;
-    color: black;
+    color: #ffff
 }
 .circle{
     padding: 10px;
     border-radius: 50%;
-    border: 1px solid #000000;
+    border: 1px solid #ffff;
 }
 .active{
     background-color: #ffff;
+    color: #000000;
 }
 .form-control p{
     color: hsl(228, 100%, 84%);
@@ -110,8 +108,10 @@ button{
 
 
 /* Plan */
+.tab{
+    display: none;
+}
 .select-plan{
-    /* display: none; */
     flex-direction: column;
     justify-content: space-between;
     height: 60%;
@@ -189,7 +189,7 @@ button{
 /* Adds-0ns */
 
 .add-ons{
-    display: none;
+   
 }
 .multiplayer{
     display: flex;
