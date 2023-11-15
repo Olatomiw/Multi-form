@@ -84,7 +84,7 @@ const controlElements = document.querySelectorAll('.control');
 
 // Add a click event listener to each "control" div
 controlElements.forEach(function(controlElement) {
-    controlElement.addEventListener('click', function(event) {
+    controlElement.addEventListener('click', function activeCircle(event) {
         // Remove the 'active' class from all circles within all "control" divs
         document.querySelectorAll('.control .circle').forEach(function(circle) {
             circle.classList.remove('active');
@@ -104,6 +104,13 @@ const showTab = (n)=>{
     else{
         prev.style.display="inline-block"
     }
+    if(n==3){
+        next.innerHTML="SUBMIT"
+    }
+    else{
+        next.innerHTML="NEXT STEP"
+    }
+    console.log(n)
 }
 showTab(currentTab)
 console.log(currentTab)
@@ -120,11 +127,17 @@ const nextPrev = (n)=>{
             tabs[i].style.display = "none"
         }
         if(currentTab>=tabs.length){
-            tabs[2].style.display = "block"
+            tabs[3].style.display = "block"
         }
     }
-    currentTab
-    console.log(currentTab)
+    circles.forEach((circle, index)=>{
+        if(index == currentTab){
+            circles[index].classList.add("active")
+        }
+        else if(index != currentTab){
+            circles[index].classList.remove("active")
+        }
+    })
     showTab(currentTab)
 }
 
@@ -137,9 +150,9 @@ const sideTabs= (n)=>{
         else if(i!=n){
             tabs[i].style.display = "none"
         }
-        if(currentTab>=tabs.length){
-            tabs[2].style.display = "block"
-        }
+        // if(currentTab>=tabs.length){
+        //     tabs[2].style.display = "block"
+        // }
     }
     showTab(n)
 }
