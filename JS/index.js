@@ -16,10 +16,16 @@ const circles = document.querySelectorAll(".circle")
 const form_control = document.querySelector(".form-control")
 const prev = document.querySelector(".prev")
 const tabs = document.getElementsByClassName("tab")
-let currentTab = 0;
 const next = document.querySelector(".next")
 
-
+const findDisplayedTabIndex = () => {
+    for (let i = 0; i < tabs.length; i++) {
+        if (tabs[i].style.display === 'block') {
+            return i;
+        }
+    }
+    return 0; // Default to 0 if no tab is displayed
+};let currentTab = findDisplayedTabIndex();
 
 
 
@@ -119,6 +125,7 @@ console.log(currentTab)
 
 const nextPrev = (n)=>{
     currentTab =currentTab + n;
+    console.log(currentTab)
     for(let i = 0; i<tabs.length; i++){
         if(i == currentTab){
             tabs[i].style.display = "block"
@@ -150,9 +157,10 @@ const sideTabs= (n)=>{
         else if(i!=n){
             tabs[i].style.display = "none"
         }
-        // if(currentTab>=tabs.length){
-        //     tabs[2].style.display = "block"
-        // }
+        if(currentTab>=tabs.length){
+            return;
+        }
     }
     showTab(n)
+    nextPrev(n)
 }
