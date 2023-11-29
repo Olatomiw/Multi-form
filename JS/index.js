@@ -20,12 +20,15 @@ const next = document.querySelector(".next")
 
 const findDisplayedTabIndex = () => {
     for (let i = 0; i < tabs.length; i++) {
-        if (tabs[i].style.display === 'block') {
+        if (tabs[i].classList.contains("active-tab")) {
+            console.log(tabs[i])
+            console.log(i)
             return i;
         }
     }
     return 0; // Default to 0 if no tab is displayed
-};let currentTab = findDisplayedTabIndex();
+};
+let currentTab = findDisplayedTabIndex();
 
 
 
@@ -43,6 +46,10 @@ button.addEventListener("click", (event)=>{
     event.preventDefault();
 });
 next.addEventListener("click", (event)=>{
+    console.log(tabs.length-1)
+    if(currentTab===tabs.length-1){
+        return;
+    }
     event.preventDefault()
 }
 )
@@ -87,23 +94,12 @@ plan_switch.addEventListener("click", ()=>{
 })
 
 const controlElements = document.querySelectorAll('.control');
-
-// Add a click event listener to each "control" div
-controlElements.forEach(function(controlElement) {
-    controlElement.addEventListener('click', function activeCircle(event) {
-        // Remove the 'active' class from all circles within all "control" divs
-        document.querySelectorAll('.control .circle').forEach(function(circle) {
-            circle.classList.remove('active');
-        });
-
-        // Add the 'active' class to the clicked circle within the clicked "control" div
-        this.querySelector('.circle').classList.add('active');
-    });
-});
-
 const showTab = (n)=>{
-    tabs[n].style.display="block"
-
+    for(let i = 0; i<tabs.length; i++){
+        tabs[i].classList.remove("active-tab")
+    }
+    tabs[n].classList.add('active-tab')
+    console.log("show "+n)   
     if(n==0){
         prev.style.display = "none"
     }
@@ -119,24 +115,19 @@ const showTab = (n)=>{
     console.log(n)
 }
 showTab(currentTab)
-console.log(currentTab)
+console.log("outside "+currentTab)
 
 
+const navigateTab=(n)=>{
+    let newIndex = currentTab+n;
+    if(newIndex>=0 && newIndex <tabs.length){
+        currentTab=newIndex
+        showTab(currentTab)
+    }
+}
 
 const nextPrev = (n)=>{
-    currentTab =currentTab + n;
-    console.log(currentTab)
-    for(let i = 0; i<tabs.length; i++){
-        if(i == currentTab){
-            tabs[i].style.display = "block"
-        }
-        else if(i!=currentTab){
-            tabs[i].style.display = "none"
-        }
-        if(currentTab>=tabs.length){
-            tabs[3].style.display = "block"
-        }
-    }
+    navigateTab(n)
     circles.forEach((circle, index)=>{
         if(index == currentTab){
             circles[index].classList.add("active")
@@ -145,22 +136,4 @@ const nextPrev = (n)=>{
             circles[index].classList.remove("active")
         }
     })
-    showTab(currentTab)
-}
-
-
-const sideTabs= (n)=>{
-    for(let i = 0; i<tabs.length; i++){
-        if(i == n){
-            tabs[i].style.display = "block"
-        }
-        else if(i!=n){
-            tabs[i].style.display = "none"
-        }
-        if(currentTab>=tabs.length){
-            return;
-        }
-    }
-    showTab(n)
-    nextPrev(n)
 }

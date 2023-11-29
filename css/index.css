@@ -111,6 +111,9 @@ button{
 .tab{
     display: none;
 }
+.active-tab{
+    display: block;
+}
 .select-plan{
     flex-direction: column;
     justify-content: space-between;
